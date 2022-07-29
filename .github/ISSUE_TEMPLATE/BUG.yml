@@ -52,7 +52,7 @@ body:
     attributes:
       label: Product versions
       description: If applicable, please provide any additional information about the versions of products, browser and assistive technologies, or tool versions.
-      render:
+      render: sh
       value: |
         axe-core version: X.Y.Z
         axe-webdriver, extension or other integration version: X.Y.Z
