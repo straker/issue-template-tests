@@ -57,8 +57,8 @@ body:
         axe-core version: X.Y.Z
         axe-webdriver, extension or other integration version: X.Y.Z
 
-        Browser and Assistive Technology versions
+        Browser and Assistive Technology versions:
 
         For Tooling issues:
-          - Node version: XX  <!-- run `node --version` -->
-          - Platform:  <!-- Mac, Linux, Windows -->"
+          - Node version: XX  # run `node --version`
+          - Platform:  # Mac, Linux, Windows
