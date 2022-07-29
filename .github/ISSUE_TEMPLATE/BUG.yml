@@ -53,11 +53,12 @@ body:
       label: Product versions
       description: If applicable, please provide any additional information about the versions of products, browser and assistive technologies, or tool versions.
       render:
-      placeholder: |
+      value: |
+        axe-core version: X.Y.Z
         axe-webdriver, extension or other integration version: X.Y.Z
 
         Browser and Assistive Technology versions
 
         For Tooling issues:
           - Node version: XX  <!-- run `node --version` -->
-        - Platform:  <!-- Mac, Linux, Windows -->"
+          - Platform:  <!-- Mac, Linux, Windows -->"
