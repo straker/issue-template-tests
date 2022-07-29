@@ -1,0 +1,61 @@
+name: Bug Report
+description: File a bug report
+title: '[Bug]: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue to axe-core. Please provide all necessary information to reproduce the issue. Without adequate details, your issue may be closed without investigation.
+
+        Issues can be reported for axe-core, axe Extension, and axe Linter
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      description: Which product did you encounter the issue?
+      options:
+        - axe-core
+        - axe Extension
+        - axe Linter
+    validations:
+      required: true
+  - type: checkboxes
+    id: latest-axe
+    attributes:
+      label: Lastest Version
+      options:
+        - label: I have tested the issue with the latest version of the product
+          required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expectation
+      description: Describe what you expect the product to do.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+      description: Describe what the product actually does.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to Reproduce
+      description: Please include a description of the issue and a page or code snippet where it can be reproduced.
+      validations:
+        required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Product versions
+      description: If applicable, please provide any additional information about the versions of products, browser and assistive technologies, or tool versions.
+      value: "axe-webdriver, extension or other integration version: X.Y.Z
+
+Browser and Assistive Technology versions
+
+For Tooling issues:
+- Node version: XX  <!-- run `node --version` -->
+- Platform:  <!-- Mac, Linux, Windows -->"
