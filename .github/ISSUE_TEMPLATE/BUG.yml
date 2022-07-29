@@ -45,8 +45,8 @@ body:
     attributes:
       label: How to Reproduce
       description: Please include a description of the issue and a page or code snippet where it can be reproduced.
-      validations:
-        required: true
+    validations:
+      required: true
   - type: textarea
     id: versions
     attributes:
