@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for reporting an issue to axe-core. Please provide all necessary information to reproduce the issue. Without adequate details, your issue may be closed without investigation.
 
-        Issues can be reported for axe-core, [axe Extension](https://www.deque.com/axe/browser-extensions/), and [axe Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). If you have an issue with one of our npm integrations (e.g. `@axe-core/webdriverjs`), please open an issue in https://github.com/dequelabs/axe-core-npm.
+        Issues can be reported for axe-core, [axe Extension](https://www.deque.com/axe/browser-extensions/), and [axe Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). If you're having an issue with one of our npm integrations (e.g. `@axe-core/webdriverjs`), please open an issue in https://github.com/dequelabs/axe-core-npm.
   - type: dropdown
     id: product
     attributes:
@@ -29,19 +29,19 @@ body:
   - type: textarea
     id: body
     attributes:
-      label: Describe the Issue
+      label: Issue Description
       description: Please include a description of the issue and a page or code snippet where it can be reproduced.
       value: |
-        ### Expectation
+        #### Expectation
         Describe what you expected the product to do.
 
-        ### Actual
+        #### Actual
         Describe what the product actually does.
 
-        ### How wo Reproduce
+        #### How to Reproduce
         Provide a code sample or link to a webpage that reproduces the issue. Without this, your issue may be closed without investigation.
 
-        ### Additional context
+        #### Additional context
         Any thing else we should know about the issue?
     validations:
       required: true
@@ -50,7 +50,7 @@ body:
     attributes:
       label: Environment
       description: If applicable, please provide any additional information about the versions of products, browsers, or assistive technologies.
-      render: sh
+      render: bash
       value: |
         axe-core version: X.Y.Z
         axe Exension version: X.Y.Z
