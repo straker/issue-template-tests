@@ -1,5 +1,5 @@
 name: Ask a question
-description: Ask a question
+description: General questions for us, the product, or why things are the way they are.
 labels: ['question']
 body:
   - type: markdown
