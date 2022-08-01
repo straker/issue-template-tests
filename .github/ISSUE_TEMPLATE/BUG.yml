@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for reporting an issue to axe-core. Please provide all necessary information to reproduce the issue. Without adequate details, your issue may be closed without investigation.
 
-        Issues can be reported for axe-core, axe Extension, and axe Linter
+        Issues can be reported for axe-core, [axe Extension](https://www.deque.com/axe/browser-extensions/), and [axe Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). If you have an issue with one of our npm integrations (e.g. `@axe-core/webdriverjs`), please open an issue in https://github.com/dequelabs/axe-core-npm.
   - type: dropdown
     id: product
     attributes:
@@ -27,38 +27,32 @@ body:
         - label: I have tested the issue with the latest version of the product
           required: true
   - type: textarea
-    id: expectation
-    attributes:
-      label: Expectation
-      description: Describe what you expect the product to do.
-    validations:
-      required: true
-  - type: textarea
-    id: actual
-    attributes:
-      label: Actual
-      description: Describe what the product actually does.
-    validations:
-      required: true
-  - type: textarea
-    id: reproduce
+    id: body
     attributes:
       label: How to Reproduce
       description: Please include a description of the issue and a page or code snippet where it can be reproduced.
+    value: |
+      ### Expectation
+      Describe what you expected the product to do.
+
+      ### Actual
+      Describe what the product actually does.
+
+      ### How wo Reproduce
+      Provide a code sample or link to a webpage that reproduces the issue. Without this, your issue may be closed without investigation.
+
+      ### Additional context
+      Any thing else we should know about the issue?
     validations:
       required: true
   - type: textarea
     id: versions
     attributes:
-      label: Product versions
-      description: If applicable, please provide any additional information about the versions of products, browser and assistive technologies, or tool versions.
+      label: Environment
+      description: If applicable, please provide any additional information about the versions of products, browsers, or assistive technologies.
       render: sh
       value: |
         axe-core version: X.Y.Z
-        axe-webdriver, extension or other integration version: X.Y.Z
-
+        axe Exension version: X.Y.Z
+        axe Linter version: X.Y.Z
         Browser and Assistive Technology versions:
-
-        For Tooling issues:
-          - Node version: XX  # run `node --version`
-          - Platform:  # Mac, Linux, Windows
