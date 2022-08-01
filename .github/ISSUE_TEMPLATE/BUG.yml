@@ -31,18 +31,18 @@ body:
     attributes:
       label: How to Reproduce
       description: Please include a description of the issue and a page or code snippet where it can be reproduced.
-    value: |
-      ### Expectation
-      Describe what you expected the product to do.
+      value: |
+        ### Expectation
+        Describe what you expected the product to do.
 
-      ### Actual
-      Describe what the product actually does.
+        ### Actual
+        Describe what the product actually does.
 
-      ### How wo Reproduce
-      Provide a code sample or link to a webpage that reproduces the issue. Without this, your issue may be closed without investigation.
+        ### How wo Reproduce
+        Provide a code sample or link to a webpage that reproduces the issue. Without this, your issue may be closed without investigation.
 
-      ### Additional context
-      Any thing else we should know about the issue?
+        ### Additional context
+        Any thing else we should know about the issue?
     validations:
       required: true
   - type: textarea
