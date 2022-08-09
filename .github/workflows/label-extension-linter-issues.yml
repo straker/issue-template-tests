@@ -15,6 +15,7 @@ jobs:
       - name: View issue information
         run: |
           echo "Issue body: ${{ github.event.issue.body }}"
+          echo "Issue body (toJson): ${{ toJson(github.event.issue.body) }}"
           echo "@@@ Extension: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}"
           echo "@@@ Extension (part a): ${{ contains(toJson(github.event.issue.body), 'axe Extension') }}"
           echo "@@@ Extension (part b): ${{ contains(toJson(github.event.issue.body), '### Product') }}"
