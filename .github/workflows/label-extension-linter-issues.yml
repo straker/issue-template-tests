@@ -15,6 +15,8 @@ jobs:
       - name: View issue information
         run: |
           echo "Issue body: ${{ github.event.issue.body }}"
+          echo "@@@ Extension: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}"
+          echo "@@@ Linting: ${{ contains(github.event.issue.body, '### Product\n\naxe Linter') }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
         if: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}
