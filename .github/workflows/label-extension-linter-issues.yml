@@ -3,8 +3,6 @@ name: Add extension and linting labels to associated opened issues
 on:
   issues:
     types: [opened]
-env:
-  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 
 jobs:
   label_extension_linting_issues:
@@ -12,15 +10,6 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: View issue information
-        run: |
-          echo "Issue body (toJson): ${{ toJson(github.event.issue.body) }}"
-          echo "@@@ \n (toJson) ${{ contains(toJson(github.event.issue.body), '\n') }}"
-          echo "@@@ \n\n (toJson) ${{ contains(toJson(github.event.issue.body), '\n\n') }}"
-          echo "@@@ Product\n\n (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\n') }}"
-          echo "@@@ ### Product\n\naxe (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\naxe') }}"
-          echo "@@@ ### Product\n\naxe Extension (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\naxe Extension') }}"
-          echo "@@@ ### Product\n\naxe Extension\n\n (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\naxe Extension\n\n') }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
         if: contains(toJson(github.event.issue.body), '### Product\n\naxe Extension\n\n')
