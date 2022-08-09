@@ -14,17 +14,13 @@ jobs:
     steps:
       - name: View issue information
         run: |
-          echo "Issue body: ${{ github.event.issue.body }}"
           echo "Issue body (toJson): ${{ toJson(github.event.issue.body) }}"
-          echo "@@@ \n ${{ contains(github.event.issue.body, '\n') }}"
-          echo "@@@ \r ${{ contains(github.event.issue.body, '\r') }}"
-          echo "@@@ \r\n ${{ contains(github.event.issue.body, '\r\n') }}"
           echo "@@@ \n (toJson) ${{ contains(toJson(github.event.issue.body), '\n') }}"
           echo "@@@ \n\n (toJson) ${{ contains(toJson(github.event.issue.body), '\n\n') }}"
-          echo "@@@ Product\n\n (toJson) ${{ contains(toJson(github.event.issue.body), 'Product\n\n') }}"
-          echo "@@@ Product\n\naxe (toJson) ${{ contains(toJson(github.event.issue.body), 'Product\n\naxe') }}"
-          echo "@@@ \r (toJson) ${{ contains(toJson(github.event.issue.body), '\r') }}"
-          echo "@@@ \r\n (toJson) ${{ contains(toJson(github.event.issue.body), '\r\n') }}"
+          echo "@@@ Product\n\n (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\n') }}"
+          echo "@@@ ### Product\n\naxe (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\naxe') }}"
+          echo "@@@ ### Product\n\naxe Extension (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\naxe Extension') }}"
+          echo "@@@ ### Product\n\naxe Extension\n\n (toJson) ${{ contains(toJson(github.event.issue.body), '### Product\n\naxe Extension\n\n') }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
         if: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}
