@@ -20,10 +20,11 @@ jobs:
           echo "@@@ \r ${{ contains(github.event.issue.body, '\r') }}"
           echo "@@@ \r\n ${{ contains(github.event.issue.body, '\r\n') }}"
           echo "@@@ \n (toJson) ${{ contains(toJson(github.event.issue.body), '\n') }}"
+          echo "@@@ \n\n (toJson) ${{ contains(toJson(github.event.issue.body), '\n\n') }}"
+          echo "@@@ Product\n\n (toJson) ${{ contains(toJson(github.event.issue.body), 'Product\n\n') }}"
+          echo "@@@ Product\n\naxe (toJson) ${{ contains(toJson(github.event.issue.body), 'Product\n\naxe') }}"
           echo "@@@ \r (toJson) ${{ contains(toJson(github.event.issue.body), '\r') }}"
           echo "@@@ \r\n (toJson) ${{ contains(toJson(github.event.issue.body), '\r\n') }}"
-          echo "@@@ join ${{ join(github.event.issue.body, '|||') }}"
-          echo "@@@ join (toJson) ${{ join(toJson(github.event.issue.body), '|||') }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
         if: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}
