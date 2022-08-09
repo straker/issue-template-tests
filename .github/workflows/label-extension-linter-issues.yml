@@ -16,11 +16,13 @@ jobs:
         run: |
           echo "Issue body: ${{ github.event.issue.body }}"
           echo "@@@ Extension: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}"
-          echo "@@@ Extension (part a): ${{ contains(github.event.issue.body, 'axe Extension') }}"
-          echo "@@@ Extension (part b): ${{ contains(github.event.issue.body, '### Product') }}"
-          echo "@@@ Extension (part c): ${{ contains(github.event.issue.body, '### Product\n') }}"
-          echo "@@@ Extension (part d): ${{ contains(github.event.issue.body, '\naxe Extension') }}"
-          echo "@@@ Linting: ${{ contains(github.event.issue.body, '### Product\n\naxe Linter') }}"
+          echo "@@@ Extension (part a): ${{ contains(toJson(github.event.issue.body), 'axe Extension') }}"
+          echo "@@@ Extension (part b): ${{ contains(toJson(github.event.issue.body), '### Product') }}"
+          echo "@@@ Extension (part c): ${{ contains(toJson(github.event.issue.body), '### Product\r\n') }}"
+          echo "@@@ Extension (part d): ${{ contains(toJson(github.event.issue.body), '### Product\r\n\r\n') }}"
+          echo "@@@ Extension (part e): ${{ contains(toJson(github.event.issue.body), '\r\naxe Extension') }}"
+          echo "@@@ Extension (part f): ${{ contains(toJson(github.event.issue.body), '\r\n\r\naxe Extension') }}"
+          echo "@@@ Extension (part g): ${{ contains(toJson(github.event.issue.body), '### Product\r\n\r\naxe Extension') }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
         if: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}
