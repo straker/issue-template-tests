@@ -17,13 +17,13 @@ jobs:
           echo "Issue body: ${{ github.event.issue.body }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
-        if: ${{ contains(github.event.issue.body, 'Product\naxe Extension') }}
+        if: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}
         with:
-          add-labels: "linting"
+          add-labels: "extension"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Label Linting Issues
         uses: andymckay/labeler@1.0.4
-        if: ${{ contains(github.event.issue.body, 'Product\naxe Linter') }}
+        if: ${{ contains(github.event.issue.body, '### Product\n\naxe Linter') }}
         with:
-          add-labels: "extension"
+          add-labels: "linting"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
