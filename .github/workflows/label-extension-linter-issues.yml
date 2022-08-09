@@ -1,0 +1,28 @@
+name: Add extension and linting labels to associated opened issues
+
+on:
+  issues:
+    types: [opened]
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+
+jobs:
+  label_extension_linting_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: View issue information
+      run: echo "Issue body: ${{ github.event.issue.body }}"
+      - name: Label Extension Issues
+        uses: andymckay/labeler@1.0.4
+        if: ${{ contains(github.event.issue.body, 'Product\naxe Extension') }}
+        with:
+          add-labels: "linting"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Label Linting Issues
+        uses: andymckay/labeler@1.0.4
+        if: ${{ contains(github.event.issue.body, 'Product\naxe Linter') }}
+        with:
+          add-labels: "extension"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
