@@ -16,6 +16,10 @@ jobs:
         run: |
           echo "Issue body: ${{ github.event.issue.body }}"
           echo "@@@ Extension: ${{ contains(github.event.issue.body, '### Product\n\naxe Extension') }}"
+          echo "@@@ Extension (part a): ${{ contains(github.event.issue.body, 'axe Extension') }}"
+          echo "@@@ Extension (part b): ${{ contains(github.event.issue.body, '### Product') }}"
+          echo "@@@ Extension (part c): ${{ contains(github.event.issue.body, '### Product\n') }}"
+          echo "@@@ Extension (part d): ${{ contains(github.event.issue.body, '\naxe Extension') }}"
           echo "@@@ Linting: ${{ contains(github.event.issue.body, '### Product\n\naxe Linter') }}"
       - name: Label Extension Issues
         uses: andymckay/labeler@1.0.4
