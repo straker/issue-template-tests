@@ -1,0 +1,20 @@
+{
+  "name": "issue-template-tests",
+  "version": "1.0.0",
+  "description": "Testing out issue template forms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo $(date +\"%Y-%m-%dT%H:%M:%S:%z\") >> test.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/straker/issue-template-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/straker/issue-template-tests/issues"
+  },
+  "homepage": "https://github.com/straker/issue-template-tests#readme"
+}
