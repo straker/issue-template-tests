@@ -16,8 +16,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: build
-        run: npm run build
+      # - name: build
+      #   run: npm run build
 
       - name: create pull pull-requests
         run: |
