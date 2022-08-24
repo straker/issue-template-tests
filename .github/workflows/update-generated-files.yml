@@ -13,10 +13,14 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
-      - name: build and sync files
+      - name: build
+        run: npm run build
+      - name: create pull pull-requests
+        if: git status --porcelain
         run: |
-          npm run build
           git add .
           git checkout -b "sync-generated-files-$(date +"%Y-%m-%dT%H-%M-%S%z")"
           git commit -m "chore: sync generated files"
           gh pr create --base main --title "chore: sync generated files" --body ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
