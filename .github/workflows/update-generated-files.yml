@@ -11,8 +11,9 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: build and push generated files
+      - name: checkout repo
         uses: actions/checkout@v3
+      - name: build and sync files
         run: |
           npm run build
           git add .
