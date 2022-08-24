@@ -11,16 +11,24 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: checkout repo
+      - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # @see https://github.com/actions/runner/issues/2033
+      - name: Set ownership
+        run: |
+          # this is to fix GIT not liking owner of the checkout dir
+          chown -R $(id -u):$(id -g) $PWD
+
       - name: build
         run: npm run build
-      # @see https://github.com/actions/checkout/issues/760
-      - name: work around permission issue
-        run: git config --global --add safe.directory /__w/issue-template-tests/issue-template-tests
+
       - name: Check if there are changes
         id: changes
         uses: UnicornGlobal/has-changes-action@v1.0.11
+
       - name: create pull pull-requests
         if: steps.changes.outputs.changed == 1
         run: |
