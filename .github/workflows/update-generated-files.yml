@@ -11,6 +11,12 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      # install GIT, as without it checkout would use REST API
+      - name: Install GIT
+        run: |
+          apt update
+          apt install -y git
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -19,7 +25,6 @@ jobs:
       # @see https://github.com/actions/runner/issues/2033
       - name: Set ownership
         run: |
-          # this is to fix GIT not liking owner of the checkout dir
           chown -R $(id -u):$(id -g) $PWD
 
       - name: build
