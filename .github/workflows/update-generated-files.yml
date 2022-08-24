@@ -17,7 +17,7 @@ jobs:
         run: npm run build
       # @see https://github.com/actions/checkout/issues/766
       - name: Trust GitHub workspace
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory /github/workspace
       - name: Check if there are changes
         id: changes
         uses: UnicornGlobal/has-changes-action@v1.0.11
