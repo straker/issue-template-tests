@@ -25,9 +25,10 @@ jobs:
           git status
           git config user.name github-actions
           git config user.email github-actions@github.com
+          branch_name="sync-generated-files-$(date +"%Y-%m-%dT%H-%M-%S%z")"
           git add .
-          git checkout -b "sync-generated-files-$(date +"%Y-%m-%dT%H-%M-%S%z")"
+          git checkout -b $branch_name
           git commit -m "chore: sync generated files"
-          gh pr create --base main --title "chore: sync generated files" --body ""
+          gh pr create --base main --head $branch_name --title "chore: sync generated files" --body ""
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
