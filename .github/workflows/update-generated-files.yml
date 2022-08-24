@@ -11,7 +11,9 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - run: |
+      - name: build and push generated files
+        uses: actions/checkout@v3
+        run: |
           npm run build
           git add .
           git checkout -b "sync-generated-files-$(date +"%Y-%m-%dT%H-%M-%S%z")"
