@@ -21,9 +21,9 @@ jobs:
       - name: create pull pull-requests
         if: steps.changes.outputs.changed == 1
         run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add .
           git checkout -b "sync-generated-files-$(date +"%Y-%m-%dT%H-%M-%S%z")"
           git commit -m "chore: sync generated files"
           gh pr create --base main --title "chore: sync generated files" --body ""
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
