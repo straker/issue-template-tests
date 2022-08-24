@@ -12,31 +12,17 @@ jobs:
       pull-requests: write
     steps:
       # install GIT, as without it checkout would use REST API
-      - name: Install GIT
-        run: |
-          apt update
-          apt install -y git
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      # @see https://github.com/actions/runner/issues/2033
-      - name: Set ownership
-        run: |
-          chown -R $(id -u):$(id -g) $PWD
-
       - name: build
         run: npm run build
 
-      - name: Check if there are changes
-        id: changes
-        uses: UnicornGlobal/has-changes-action@v1.0.11
-
       - name: create pull pull-requests
-        if: steps.changes.outputs.changed == 1
         run: |
+          git status
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
