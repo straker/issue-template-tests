@@ -51,7 +51,7 @@ jobs:
       - name: Update pull request
         if: ${{ steps.changes.outputs.changes && steps.branchExists.outputs.exists }}
         run: |
-          git reset head --hard
+          git reset HEAD --hard
           git checkout $branch_name
           npm run build
           git status
