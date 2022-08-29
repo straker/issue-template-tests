@@ -33,7 +33,7 @@ jobs:
           echo $exists | grep . && echo "Branch 'sync-generated-files' already exists on remote" || echo "Branch does not exists in remote"
           echo ::set-output name=exists::"$exists"
 
-      - name: Create pull pull-requests
+      - name: Create pull request
         if: ${{ steps.changes.outputs.changes && !steps.changes.outputs.exists }}
         run: |
           git status
@@ -45,5 +45,19 @@ jobs:
           git commit -m "chore: sync generated files"
           git push origin $branch_name
           gh pr create --base main --head $branch_name --title "chore: sync generated files" --body ""
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update pull request
+        if: ${{ steps.changes.outputs.changes && steps.changes.outputs.exists }}
+        run: |
+          git status
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          branch_name="sync-generated-files"
+          git add .
+          git checkout $branch_name
+          git commit -m "chore: sync generated files"
+          git push origin $branch_name
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
