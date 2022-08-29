@@ -34,7 +34,7 @@ jobs:
           echo ::set-output name=exists::"$exists"
 
       - name: Create pull request
-        if: ${{ steps.changes.outputs.changes && !steps.changes.outputs.exists }}
+        if: ${{ steps.changes.outputs.changes && !steps.branchExists.outputs.exists }}
         run: |
           git status
           git config user.name github-actions
@@ -49,7 +49,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update pull request
-        if: ${{ steps.changes.outputs.changes && steps.changes.outputs.exists }}
+        if: ${{ steps.changes.outputs.changes && steps.branchExists.outputs.exists }}
         run: |
           git status
           git config user.name github-actions
