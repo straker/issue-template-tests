@@ -53,9 +53,9 @@ jobs:
       - name: Update pull request
         if: ${{ steps.changes.outputs.changes && steps.branchExists.outputs.exists }}
         run: |
-          git reset HEAD --hard
+          git stash
           git checkout $BRANCH_NAME
-          npm run build
+          git checkout stash -- .
           git status
           git config user.name github-actions
           git config user.email github-actions@github.com
