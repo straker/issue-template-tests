@@ -19,12 +19,19 @@ jobs:
 
       - name: Check for changes
         id: changes
-        run: echo ::set-output name=changes::"$(git status --porcelain)"
+        run: |
+          changes=$(git status --porcelain)
+          # see https://unix.stackexchange.com/a/509498
+          echo $changes | grep . && echo "Changes detected:\n$changes" || echo "No changes"
+          echo ::set-output name=changes::"$changes"
 
       - name: Check branch exists
         id: branchExists
         if: steps.changes.outputs.changes
-        run: echo ::set-output name=exists::"$(git ls-remote --heads origin sync-generated-files)"
+        run: |
+          exists=$(git ls-remote --heads origin sync-generated-files)
+          echo $exists | grep . && echo "Branch 'sync-generated-files' already exists on remote" || echo "Branch does not exists in remote"
+          echo ::set-output name=exists::"$exists"
 
       - name: Create pull pull-requests
         if: ${{ steps.changes.outputs.changes && !steps.changes.outputs.exists }}
