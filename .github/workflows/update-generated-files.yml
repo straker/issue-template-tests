@@ -22,7 +22,7 @@ jobs:
         run: |
           changes=$(git status --porcelain)
           # see https://unix.stackexchange.com/a/509498
-          echo $changes | grep . && echo "Changes detected:\n$changes" || echo "No changes"
+          echo $changes | grep . && echo "Changes detected" || echo "No changes"
           echo ::set-output name=changes::"$changes"
 
       - name: Check branch exists
@@ -55,8 +55,10 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           branch_name="sync-generated-files"
-          git add .
+          git stash
           git checkout $branch_name
+          git stash apply
+          git add .
           git commit -m "chore: sync generated files"
           git push origin $branch_name
         env:
