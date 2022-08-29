@@ -51,13 +51,13 @@ jobs:
       - name: Update pull request
         if: ${{ steps.changes.outputs.changes && steps.branchExists.outputs.exists }}
         run: |
+          git reset head --hard
+          git checkout $branch_name
+          npm run build
           git status
           git config user.name github-actions
           git config user.email github-actions@github.com
           branch_name="sync-generated-files"
-          git stash
-          git checkout $branch_name
-          git stash apply
           git add .
           git commit -m "chore: sync generated files"
           git push origin $branch_name
