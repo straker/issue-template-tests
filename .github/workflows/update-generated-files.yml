@@ -27,7 +27,7 @@ jobs:
         run: echo ::set-output name=exists::"$(git ls-remote --heads origin sync-generated-files)"
 
       - name: Create pull pull-requests
-        if: ${{ !steps.changes.outputs.exists }}
+        if: ${{ steps.changes.outputs.changes && !steps.changes.outputs.exists }}
         run: |
           git status
           git config user.name github-actions
