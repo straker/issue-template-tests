@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo $(date +\"%Y-%m-%dT%H:%M:%S:%z\") >> test.txt"
+    "build": "rimraf dist && echo $(date +\"%Y-%m-%dT%H:%M:%S:%z\") >> test.txt"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/straker/issue-template-tests/issues"
   },
-  "homepage": "https://github.com/straker/issue-template-tests#readme"
+  "homepage": "https://github.com/straker/issue-template-tests#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
 }
