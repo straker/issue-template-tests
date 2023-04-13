@@ -19,6 +19,6 @@
   "homepage": "https://github.com/straker/issue-template-tests#readme",
   "devDependencies": {
     "axe-core": "^4.4.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^5.0.0"
   }
 }
