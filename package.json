@@ -19,6 +19,7 @@
   "homepage": "https://github.com/straker/issue-template-tests#readme",
   "devDependencies": {
     "@axe-core/webdriverio": "^4.4.0",
+    "@axe-core/webdriverjs": "^4.3.0",
     "axe-core": "^4.4.0",
     "rimraf": "^3.0.2"
   }
