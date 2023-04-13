@@ -3,7 +3,12 @@
   "extends": [
     "config:base"
   ],
-  "groupName": "all",
   "rangeStrategy": "bump",
-  "semanticCommits": "enable"
+  "semanticCommits": "enable",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "dependencies (non-major)"
+    }
+  ]
 }
