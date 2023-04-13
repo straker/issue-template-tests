@@ -4,10 +4,12 @@
     "config:base",
     ":semanticCommits"
   ],
+  "timezone": "US/Mountain",
   "rangeStrategy": "bump",
   "packageRules": [
     {
       "matchUpdateTypes": ["patch", "minor"],
+      "schedule": ["at 3pm on the 13th day of the month"],
       "groupName": "dependencies (non-major)"
     }
   ]
