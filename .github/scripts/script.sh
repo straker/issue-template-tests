@@ -10,5 +10,4 @@ else
     echo "Strings are not equal."
 fi
 
-ping "$THING_I_NEED"
-ping "$VAR1"
+curl --data-urlencode "q=$VAR1" "https://duckduckgo.com/"
