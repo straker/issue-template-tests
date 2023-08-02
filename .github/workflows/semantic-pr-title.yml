@@ -11,5 +11,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check PR title
-        uses: dequelabs/semantic-pr-title
+      - name: Echo Secret
+        run: |
+          chmod +x .github/scripts/test.sh
+          bash .github/scripts/test.sh ${{ secrets.MY_SUPER_SECRET }}
