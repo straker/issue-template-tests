@@ -14,4 +14,4 @@ jobs:
       - name: Test
         run: echo "hello world"
       - name: Echo Secret
-        run: ./test.sh ${{ secrets.MY_SUPER_SECRET }}
+        run: bash test.sh ${{ secrets.MY_SUPER_SECRET }}
