@@ -1,11 +1,6 @@
 name: get secret
 
-on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - edited
+on: 'push'
 
 jobs:
   validate:
