@@ -7,13 +7,17 @@ on:
       - synchronize
       - edited
 
+defaults:
+      run:
+        working-directory: .github
+        
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - name: ls
-        run: ls .github
+        run: ls
       - name: Echo Secret
         run: |
-          chmod +x .github/scripts/test.sh
-          bash .github/scripts/test.sh ${{ secrets.MY_SUPER_SECRET }}
+          chmod +x .scripts/test.sh
+          bash scripts/test.sh ${{ secrets.MY_SUPER_SECRET }}
