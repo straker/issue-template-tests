@@ -1,0 +1,13 @@
+name: New workflow
+
+on: pull_request
+
+env:
+  THING_I_NEED: ${{ secrets.MY_SUPER_SECRET }}
+
+jobs:
+  script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/script.sh
