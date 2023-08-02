@@ -5,6 +5,6 @@ on: 'push'
 jobs:
   validate:
     runs-on: ubuntu-latest
-     steps:
+    steps:
       - name: Echo Secret
         run: echo "secret is: ${{ secrets.MY_SUPER_SECRET }}"
