@@ -7,4 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Secret
-        run: echo "secret is: ${{ secrets.MY_SUPER_SECRET }}"
+        run: | 
+          echo "secret is: ${{ secrets.MY_SUPER_SECRET }}"
