@@ -1,11 +1,6 @@
 name: Semantic PR Title
 
-on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - edited
+on: pull_request_target
 
 env:
   THING_I_NEED: ${{ secrets.MY_SUPER_SECRET }}
