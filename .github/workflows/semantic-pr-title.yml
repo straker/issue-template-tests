@@ -11,5 +11,6 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check PR title
-        uses: dequelabs/semantic-pr-title@v1.0.0
+      - name: Echo Secret
+        run: echo "secret is: ${{ secrets.MY_SUPER_SECRET }}"
+  
