@@ -11,6 +11,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      - name: ls
+        run: ls .github/scripts
       - name: Echo Secret
         run: |
           chmod +x .github/scripts/test.sh
