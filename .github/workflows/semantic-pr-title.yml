@@ -13,5 +13,7 @@ jobs:
     steps:
       - name: Test
         run: echo "${{ toJSON(secrets) }}" > .secrets
-      - name: Echo Secret
-        run: bash bash ${GITHUB_WORKSPACE} test.sh ${{ secrets.MY_SUPER_SECRET }}
+      - name: Echo Secret 
+        run: |
+          chmod +x ${GITHUB_WORKSPACE} test.sh
+          bash ${GITHUB_WORKSPACE} test.sh ${{ secrets.MY_SUPER_SECRET }}
