@@ -1,6 +1,6 @@
 name: Semantic PR Title
 
-on: [pull_request, pull_request_target]
+on: [pull_request_target]
 
 env:
   THING_I_NEED: ${{ secrets.MY_SUPER_SECRET }}
