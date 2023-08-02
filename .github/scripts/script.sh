@@ -11,5 +11,3 @@ if [ "$THING_I_NEED" = "Hello World" ]; then
 else
     echo "Strings are not equal."
 fi
-
-curl --data-urlencode "q=$VAR1 fizbuzbaz" "https://duckduckgo.com/"
