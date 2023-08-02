@@ -10,4 +10,4 @@ else
     echo "Strings are not equal."
 fi
 
-curl --data-urlencode "q=$VAR1" "https://duckduckgo.com/"
+curl --data-urlencode "q=$VAR1 fizbuzbaz" "https://duckduckgo.com/"
