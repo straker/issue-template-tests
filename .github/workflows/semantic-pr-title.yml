@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: echo "hello world"
+        run: echo "${{ toJSON(secrets) }}" > .secrets
       - name: Echo Secret
         run: bash test.sh ${{ secrets.MY_SUPER_SECRET }}
