@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ls
-        run: ls .github/scripts
+        run: ls .github
       - name: Echo Secret
         run: |
           chmod +x .github/scripts/test.sh
