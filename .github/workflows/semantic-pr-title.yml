@@ -1,24 +1,6 @@
 name: Semantic PR Title
 
-on:
-  pull_request_target:
-    types:
-      - unassigned
-      - labeled
-      - unlabeled
-      - opened
-      - edited
-      - closed
-      - reopened
-      - synchronize
-      - converted_to_draft
-      - ready_for_review
-      - locked
-      - unlocked
-      - review_requested
-      - review_request_removed
-      - auto_merge_enabled
-      - auto_merge_disabled
+on: [push, pull_request_target]
 
 env:
   THING_I_NEED: ${{ secrets.MY_SUPER_SECRET }}
