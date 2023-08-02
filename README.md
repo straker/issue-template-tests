@@ -1,1 +1,1 @@
-Testing out issue template forms and Github actions.
+Testing out issue template forms.
