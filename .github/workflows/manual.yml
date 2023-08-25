@@ -10,7 +10,7 @@ on:
       shouldRun:
         description: 'Should this action run?'
         required: true
-        default: ${{ !env.SHOULD_RUN }}
+        default: "${{ env.SHOULD_RUN }}"
         type: boolean
 
 jobs:
