@@ -1,0 +1,10 @@
+name: Test manual trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      shouldRun:
+        description: 'Should this action run?'
+        required: true
+        default: false
+        type: boolean
