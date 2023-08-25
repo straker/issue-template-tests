@@ -1,0 +1,12 @@
+name: My Custom Action
+description: Testing inputs
+inputs:
+  shouldRun:
+    required: true
+    type: boolean
+runs:
+  using: "composite"
+  steps:
+    - name: Output Input
+      shell: bash
+      run: echo "shouldRun - |${{ inputs.shouldRun }}|"

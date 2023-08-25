@@ -1,6 +1,7 @@
 name: Test manual trigger
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       shouldRun:
@@ -8,3 +9,10 @@ on:
         required: true
         default: false
         type: boolean
+
+jobs:
+  script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: straker/issue-template-tests/.github/actions/my-action@main
