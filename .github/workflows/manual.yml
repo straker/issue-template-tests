@@ -1,8 +1,5 @@
 name: Test manual trigger
 
-env:
-  SHOULD_RUN: true
-
 on:
   push:
   workflow_dispatch:
@@ -10,7 +7,7 @@ on:
       shouldRun:
         description: 'Should this action run?'
         required: true
-        default: "$SHOULD_RUN"
+        default: false
         type: boolean
 
 jobs:
@@ -20,4 +17,4 @@ jobs:
       - uses: actions/checkout@v3
       - uses: straker/issue-template-tests/.github/actions/my-action@main
         with:
-          token: ${{ inputs.shouldRun }}
+          token: ${{ inputs.shouldRun || flase }}
