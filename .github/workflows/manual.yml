@@ -1,7 +1,7 @@
 name: Test manual trigger
 
 env:
-  SHOULD_RUN: false
+  SHOULD_RUN: true
 
 on:
   push:

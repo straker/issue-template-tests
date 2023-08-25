@@ -4,6 +4,7 @@ inputs:
   shouldRun:
     required: true
     type: boolean
+
 runs:
   using: "composite"
   steps:
