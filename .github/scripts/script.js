@@ -2,4 +2,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-console.log('github.context.payload.pull_request:', github.context.payload.pull_request.body);
+const bodyLines = github.context.payload.pull_request.body.split('\n');
+const footer = bodyLines[bodyLines.length - 1];
+
+console.log('bodyLines:', bodyLines);
+console.log('footer:', footer);
