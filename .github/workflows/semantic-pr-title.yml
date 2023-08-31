@@ -1,6 +1,6 @@
 name: Semantic PR Title
 
-on: [push, pull_request]
+on: [pull_request]
 
 env:
   THING_I_NEED: ${{ secrets.MY_SUPER_SECRET }}
@@ -13,9 +13,3 @@ jobs:
       - uses: actions/setup-node@v3
       - run: npm ci
       - run: .github/scripts/script.js
-
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check PR title
-        uses: dequelabs/semantic-pr-title@v1.0.0
