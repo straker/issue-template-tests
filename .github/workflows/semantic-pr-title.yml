@@ -1,6 +1,6 @@
 name: Semantic PR Title
 
-on: [pull_request]
+on: [push, pull_request]
 
 env:
   THING_I_NEED: ${{ secrets.MY_SUPER_SECRET }}
@@ -9,7 +9,13 @@ jobs:
   script:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github.context) }}
-        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: .github/scripts/script.js
+
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title
+        uses: dequelabs/semantic-pr-title@v1.0.0
