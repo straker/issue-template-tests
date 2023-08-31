@@ -13,9 +13,3 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github.context) }}
         run: echo "$GITHUB_CONTEXT"
-
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check PR title
-        uses: dequelabs/semantic-pr-title@v1.0.0
