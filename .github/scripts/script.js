@@ -9,16 +9,6 @@ console.log('bodyLines:', bodyLines);
 console.log('footer:', footer);
 
 async function main() {
-  core.info(`checking is user is a member of the team: "${github.context.actor}"`)
-
-  const result = await github.rest.teams.getMembershipForUserInOrg({
-    org: context.repo.owner,
-    team_slug: 'axe-api-team',
-    username: github.context.actor
-  })
-
-  console.log({result})
-
   if (
     !(
       footer.startsWith('closes: #') ||
