@@ -21,6 +21,6 @@
     "@axe-core/webdriverio": "^4.4.0",
     "@axe-core/webdriverjs": "^4.3.0",
     "axe-core": "^4.4.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^5.0.5"
   }
 }
