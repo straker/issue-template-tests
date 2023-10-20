@@ -14,7 +14,7 @@ jobs:
   script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: straker/issue-template-tests/.github/actions/my-action@main
         with:
           shouldRun: ${{ inputs.shouldRun || false }}
