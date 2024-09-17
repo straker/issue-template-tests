@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/straker/issue-template-tests#readme",
   "devDependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "@axe-core/webdriverio": "^4.4.0",
     "@axe-core/webdriverjs": "^4.3.0",
     "axe-core": "^4.4.0",
